@@ -9,10 +9,9 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Successfully connected with database");
-  var sql = "CREATE TABLE mytablewithnode (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), age INT, phone VARCHAR(10))";
+  var sql = "DELETE FROM mytablewithnode WHERE name = 'peter'";
   con.query(sql, function (err, result) {
     if (err) throw err;
-    console.log("Table created successfully..");
+    console.log("Number of records deleted: " + result.affectedRows);
   });
 });

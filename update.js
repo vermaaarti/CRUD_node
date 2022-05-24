@@ -9,10 +9,10 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Successfully connected with database");
-  var sql = "CREATE TABLE mytablewithnode (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), age INT, phone VARCHAR(10))";
+  var sql = "UPDATE mytablewithnode SET name = 'peter' WHERE name = 'john'";
+  //var sql = "UPDATE customers SET address = 'Canyon 123' WHERE address = 'Valley 345'";
   con.query(sql, function (err, result) {
     if (err) throw err;
-    console.log("Table created successfully..");
+    // console.log(result.affectedRows + " records updated");
   });
 });
